@@ -1,0 +1,13 @@
+server:
+  port: 8080
+  threads: 1
+  development: false
+
+app:
+  clientPoolSize: 20
+  clientTimeout: 10
+  githubResourceV3: https://api.github.com/repos/
+  githubUserAgent: Allegro-exercise
+  githubAcept: application/vnd.github.v3+json
+  githubUser: sinu0
+  githubPassword: myk700i
