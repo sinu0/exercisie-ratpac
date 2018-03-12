@@ -1,8 +1,10 @@
-Simple project that gets information about specific owner and his specific repository information by calling:
+Simple project that gets information about specific owner and his specific repository information usign github rest api v3.
+
+Aplication serve one rest method::
 
 GET /repositories/{owner}/{repository-name}
 
-and returns information:
+and it returns information:
 
 {
 "fullName": "...",
