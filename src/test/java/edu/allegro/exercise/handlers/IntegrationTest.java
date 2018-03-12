@@ -1,8 +1,10 @@
 package edu.allegro.exercise.handlers;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.netty.handler.codec.http.HttpResponseStatus;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import ratpack.http.client.ReceivedResponse;
 import ratpack.server.RatpackServer;
 import ratpack.server.ServerConfigBuilder;
