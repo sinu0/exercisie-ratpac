@@ -1,5 +1,6 @@
 package edu.allegro.exercise.handlers;
 
+import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import org.junit.*;
 import ratpack.http.client.ReceivedResponse;
@@ -13,13 +14,12 @@ public class IntegrationTest {
     private static final String GITHUB_OWNER = "sinu0";
     private static final String GIHTUB_REPO = "SiSPD";
     private static final String GIHTUB_REPO_NOK = "SiSPDs";
-    @Rule
-    public WireMockRule wireMockRule = new WireMockRule(8089);
+
     private EmbeddedApp app;
 
     @Before
     public void setUp() throws Exception {
-        GetUserRepoInfoService getUserRepoInfoService = GetUserRepoInfoTest.userRepotTest();
+        GetUserRepoInfoService getUserRepoInfoService = GetUserRepoInfoTest.userRepoTest();
         app = EmbeddedApp.fromServer(RatpackServer.of(ratpackServerSpec ->
                 ratpackServerSpec
                         .serverConfig(ServerConfigBuilder::build)
@@ -65,7 +65,5 @@ public class IntegrationTest {
         Assert.assertTrue("Response should be nok for owner:" + GITHUB_OWNER + " and for repo: " + GIHTUB_REPO_NOK, receivedResponse.getStatusCode() != HttpResponseStatus.OK.code());
     }
 
-    private void performanceTest() {
 
-    }
 }

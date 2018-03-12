@@ -3,8 +3,10 @@ package edu.allegro.exercise;
 import edu.allegro.exercise.model.github.ErrorResponse;
 
 public enum ResultCodes {
-    BAD_REQUEST(400, 500, "Internal error - Bad github request"),
-    NOT_FOUND(404, 404, "Not found - Given repository or owner doesn't exist");
+    BAD_REQUEST(400, 500, "Github client: Bad request"),
+    NOT_FOUND(404, 404, "Github client:  Given repository or owner doesn't exist"),
+    FORBIDDEN(403, 403, "Github client: API rate limit exceeded");
+
 
     private final int statusCode;
     private final int internalCode;

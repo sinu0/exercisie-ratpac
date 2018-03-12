@@ -12,13 +12,13 @@ import ratpack.http.internal.NettyHeadersBackedHeaders;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Duration;
-import java.util.Base64;
 import java.util.Map;
 
 import static edu.allegro.exercise.Constant.*;
 
 public class RepositoryInfo {
 
+    public static final String GITHUB_USER_BASIC = "githubUserBasic";
     private static final String AUTHORIZATION = "Authorization";
     private static final String BASIC = "Basic ";
     private final HttpClient client;
@@ -44,12 +44,9 @@ public class RepositoryInfo {
     }
 
     public Promise<ReceivedResponse> getInfo(String owner, String repo) throws URISyntaxException {
-        StringBuilder urlBuilder = new StringBuilder(resourceLink)
-                .append(owner)
-                .append("/")
-                .append(repo);
+        String url = resourceLink + owner + "/" + repo;
 
-        return client.get(new URI(urlBuilder.toString()),
+        return client.get(new URI(url),
                 this::setHeaders);
     }
 
@@ -68,12 +65,9 @@ public class RepositoryInfo {
     }
 
     private void setAuthorizationHeader(Map<String, Object> configuration, DefaultHttpHeaders defaultHttpHeaders) {
-        String githubUser = (String) configuration.get(GITHUB_USER.getName());
-        String githubPassword = (String) configuration.get(GITHUB_PASSWORD.getName());
-        if (!StringUtil.isNullOrEmpty(githubPassword) && !StringUtil.isNullOrEmpty(githubPassword)) {
-            String credentials = githubUser + ":" + githubPassword;
-            byte[] encode = Base64.getEncoder().encode(credentials.getBytes());
-            defaultHttpHeaders.set(AUTHORIZATION, BASIC + new String(encode));
+        String pass = (String) configuration.get(GITHUB_USER_BASIC);
+        if (!StringUtil.isNullOrEmpty(pass)) {
+            defaultHttpHeaders.set(AUTHORIZATION, BASIC + pass);
         }
     }
 }

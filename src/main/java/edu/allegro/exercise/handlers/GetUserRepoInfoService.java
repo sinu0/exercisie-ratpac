@@ -6,6 +6,8 @@ import edu.allegro.exercise.ResultCodes;
 import edu.allegro.exercise.model.github.ErrorResponse;
 import edu.allegro.exercise.model.github.UserRepoInfo;
 import io.netty.handler.codec.http.HttpResponseStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ratpack.exec.Promise;
 import ratpack.func.Action;
 import ratpack.func.Function;
@@ -21,6 +23,7 @@ import java.util.Optional;
 import static ratpack.jackson.Jackson.json;
 
 public class GetUserRepoInfoService {
+    private static final Logger log = LoggerFactory.getLogger(GetUserRepoInfoService.class);
     private static final String OWNER = "owner";
     private static final String REPO = "repo";
     private static final String PATH = ":" + OWNER + "/:" + REPO;
@@ -50,7 +53,7 @@ public class GetUserRepoInfoService {
     }
 
     private boolean ifSuccess(ReceivedResponse response) {
-        return response.getStatusCode() == HttpResponseStatus.OK.code();
+        return response.getStatusCode() < HttpResponseStatus.BAD_REQUEST.code();
     }
 
     private Function<ReceivedResponse, Optional<ReceivedResponse>> handleOK() {
@@ -59,11 +62,18 @@ public class GetUserRepoInfoService {
 
     private Function<ReceivedResponse, Optional<ReceivedResponse>> handleNOK(Context ctx) {
         return response -> {
+            logErrorResponse(response);
             ErrorResponse errorResponse = ResultCodes.fromCode(response.getStatusCode());
             ctx.getResponse().status(errorResponse.getStatusCode());
             ctx.render(json(errorResponse));
             return Optional.empty();
         };
+    }
+
+    private void logErrorResponse(ReceivedResponse response) {
+        log.info(response.getHeaders().asMultiValueMap().toString());
+        log.info(response.getStatus().toString());
+        log.info(response.getBody().getText());
     }
 
     private String getToken(Context ctx, String token) {

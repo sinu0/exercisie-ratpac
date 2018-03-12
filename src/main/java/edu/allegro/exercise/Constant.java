@@ -3,13 +3,12 @@ package edu.allegro.exercise;
 public enum Constant {
     APP_CONFIG("/app"),
     GITHUB_USER_AGENT_HEADER("githubUserAgent"),
-    GITHUB_ACCEPT_HEADER("githubAcept"),
+    GITHUB_ACCEPT_HEADER("githubAccept"),
     GITHUB_REPOSITORY_OWNER_INFO("githubResourceV3"),
     ACCEPT("Accept"),
     USER_AGENT("User-Agent"),
     CONFIG_YAML("config.yaml"),
-    GITHUB_USER("githubUser"),
-    GITHUB_PASSWORD("githubPassword"), CLIENT_POOL_SIZE("clientPoolSize"), CLIENT_TIMEOUT("clientTimeout");
+    CLIENT_POOL_SIZE("clientPoolSize"), CLIENT_TIMEOUT("clientTimeout");
 
     private final String prop;
 

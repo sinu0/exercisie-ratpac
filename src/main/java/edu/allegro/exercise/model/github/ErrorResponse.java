@@ -1,8 +1,8 @@
 package edu.allegro.exercise.model.github;
 
 public class ErrorResponse {
-    private int StatusCode;
-    private String StatusDescription;
+    private final int StatusCode;
+    private final String StatusDescription;
 
     public ErrorResponse(int statusCode, String statusDescription) {
         StatusCode = statusCode;

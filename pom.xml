@@ -13,6 +13,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <ratpack.version>1.5.4</ratpack.version>
         <slf4j-api.version>1.7.25</slf4j-api.version>
+        <junit.version>4.12</junit.version>
+        <wiremock.version>2.15.0</wiremock.version>
+        <jackson-annotations.version>2.9.4</jackson-annotations.version>
+        <jmh-core.version>1.20</jmh-core.version>
     </properties>
 
     <dependencies>
@@ -26,7 +30,6 @@
             <artifactId>ratpack-test</artifactId>
             <version>${ratpack.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
@@ -35,16 +38,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>RELEASE</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.github.tomakehurst/wiremock -->
         <dependency>
-            <groupId>com.github.tomakehurst</groupId>
-            <artifactId>wiremock</artifactId>
-            <version>2.15.0</version>
-            <type>pom</type>
-            <scope>test</scope>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson-annotations.version}</version>
         </dependency>
     </dependencies>
 
