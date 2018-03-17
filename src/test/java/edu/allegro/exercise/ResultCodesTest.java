@@ -32,7 +32,7 @@ public class ResultCodesTest {
     }
 
     @Test
-    public void anyErrorDiffrentThanAboveShouldBePresentedAs500() {
+    public void anyErrorDifferentThanAboveShouldBePresentedAs500() {
         Set<Integer> notUsed = new HashSet<>(Arrays.asList(400, 403, 404));
         for (int i = 100; i < 511; i++) {
             if (!notUsed.contains(i)) {
