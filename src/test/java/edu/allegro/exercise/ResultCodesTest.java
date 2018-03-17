@@ -37,7 +37,7 @@ public class ResultCodesTest {
         for (int i = 100; i < 511; i++) {
             if (!notUsed.contains(i)) {
                 ErrorResponse errorResponse = ResultCodes.fromCode(i);
-                assertTrue("Github error server 404 should be mapped on 404 error response", errorResponse.getStatusCode() == 500);
+                assertTrue("For error code: " + i + " ErrorResponse should be 500", errorResponse.getStatusCode() == 500);
             }
         }
     }
