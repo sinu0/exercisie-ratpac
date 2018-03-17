@@ -6,7 +6,8 @@ public enum ResultCodes {
     BAD_REQUEST(400, 500, "Github client: Bad request"),
     NOT_FOUND(404, 404, "Github client:  Given repository or owner doesn't exist"),
     FORBIDDEN(403, 403, "Github client: API rate limit exceeded"),
-    TIMEOUT(504, 504, "Githoub client: connection timeout");
+    TIMEOUT(504, 504, "Githoub client: connection timeout"),
+    BAD_GATEWAY(503, 503, "Githoub client: connection timeout");
 
 
     private final int statusCode;

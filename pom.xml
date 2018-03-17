@@ -17,6 +17,7 @@
         <wiremock.version>2.15.0</wiremock.version>
         <jackson-annotations.version>2.9.4</jackson-annotations.version>
         <jmh-core.version>1.20</jmh-core.version>
+        <jsonassert.version>1.5.0</jsonassert.version>
     </properties>
 
     <dependencies>
@@ -58,6 +59,11 @@
             <artifactId>wiremock</artifactId>
             <version>${wiremock.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.skyscreamer</groupId>
+            <artifactId>jsonassert</artifactId>
+            <version>${jsonassert.version}</version>
         </dependency>
     </dependencies>
 
