@@ -18,9 +18,10 @@ import static edu.allegro.exercise.Constant.*;
 
 public class RepositoryInfo {
 
-    public static final String GITHUB_USER_BASIC = "githubUserBasic";
+    private static final String GITHUB_USER_BASIC = "githubUserBasic";
     private static final String AUTHORIZATION = "Authorization";
     private static final String BASIC = "Basic ";
+    private static final String REPOS = "/repos/";
     private final HttpClient client;
     private final String resourceLink;
     private final Headers headers;
@@ -31,6 +32,7 @@ public class RepositoryInfo {
         this.client = initHttpClient(poolSize, timeout);
         this.resourceLink = (String) configuration.get(GITHUB_REPOSITORY_OWNER_INFO.getName());
         this.headers = setHeaders(configuration);
+
     }
 
     private HttpClient initHttpClient(int poolSize, int timeout) throws Exception {
@@ -44,7 +46,7 @@ public class RepositoryInfo {
     }
 
     public Promise<ReceivedResponse> getInfo(String owner, String repo) throws URISyntaxException {
-        String url = resourceLink + owner + "/" + repo;
+        String url = resourceLink + REPOS + owner + "/" + repo;
 
         return client.get(new URI(url),
                 this::setHeaders);

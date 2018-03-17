@@ -6,7 +6,7 @@ import java.util.Map;
 public class GetUserRepoInfoTest {
 
     private static final Map<String, Object> CONFIGURATION = new HashMap<String, Object>() {{
-        put("githubResourceV3", "https://api.github.com/repos/");
+        put("githubResourceV3", "http://localhost:1111");
         put("githubUserAgent", "Allegro-exercise");
         put("githubAccept", "application/vnd.github.v3+json");
         put("githubUserBasic", "YWxsZWdyb0V4ZXJjaXNlOkNpSHVuQmFIaWR1andpNg==");

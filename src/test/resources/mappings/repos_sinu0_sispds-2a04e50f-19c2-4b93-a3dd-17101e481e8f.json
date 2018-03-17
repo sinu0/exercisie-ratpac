@@ -1,0 +1,35 @@
+{
+  "id": "2a04e50f-19c2-4b93-a3dd-17101e481e8f",
+  "name": "repos_sinu0_sispds",
+  "request": {
+    "url": "/repos/sinu0/SiSPDs",
+    "method": "GET"
+  },
+  "response": {
+    "status": 404,
+    "body": "{\n  \"message\": \"Not Found\",\n  \"documentation_url\": \"https://developer.github.com/v3/repos/#get\"\n}\n",
+    "headers": {
+      "Server": "GitHub.com",
+      "Date": "Fri, 16 Mar 2018 22:05:04 GMT",
+      "Content-Type": "application/json; charset=utf-8",
+      "Status": "404 Not Found",
+      "X-RateLimit-Limit": "60",
+      "X-RateLimit-Remaining": "45",
+      "X-RateLimit-Reset": "1521240469",
+      "X-GitHub-Media-Type": "unknown, github.v3",
+      "Access-Control-Expose-Headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+      "Access-Control-Allow-Origin": "*",
+      "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+      "X-Frame-Options": "deny",
+      "X-Content-Type-Options": "nosniff",
+      "X-XSS-Protection": "1; mode=block",
+      "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+      "Content-Security-Policy": "default-src 'none'",
+      "X-Runtime-rack": "0.019445",
+      "X-GitHub-Request-Id": "8A96:23E8:D6E71:1DA44B:5AAC3F8C"
+    }
+  },
+  "uuid": "2a04e50f-19c2-4b93-a3dd-17101e481e8f",
+  "persistent": true,
+  "insertionIndex": 5
+}

@@ -1,0 +1,35 @@
+{
+  "id": "2a04e50f-19c2-4b93-a3dd-17101e481e5f",
+  "name": "repos_sinu0_sispds",
+  "request": {
+    "url": "/repos/sinu0/Forbidden",
+    "method": "GET"
+  },
+  "response": {
+    "status": 403,
+    "body": "{\n\"documentation_url\": \"https://developer.github.com/v3/#abuse-rate-limits\",\n\"message\": \"You have triggered an abuse detection mechanism. Please wait a few minutes before you try again.\"\n}\n",
+    "headers": {
+      "Server": "GitHub.com",
+      "Date": "Sat, 17 Mar 2018 10:09:53 GMT",
+      "Content-Type": "application/json; charset=utf-8",
+      "Transfer-Encoding": "chunked",
+      "Status": "403 Forbidden",
+      "Retry-After": "60",
+      "Access-Control-Expose-Headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+      "Access-Control-Allow-Origin": "*",
+      "X-GitHub-Media-Type": "github.v3; format=json",
+      "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+      "X-Frame-Options": "deny",
+      "X-Content-Type-Options": "nosniff",
+      "X-XSS-Protection": "1; mode=block",
+      "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+      "Expect-CT": "max-age=2592000, report-uri='https://api.github.com/_private/browser/errors'",
+      "Content-Security-Policy": "default-src 'none'; base-uri 'self'; block-all-mixed-content; child-src render.githubusercontent.com; connect-src 'self' uploads.github.com status.github.com collector.githubapp.com api.github.com www.google-analytics.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com; font-src assets-cdn.github.com; form-action 'self' github.com gist.github.com; frame-ancestors 'none'; img-src 'self' data: assets-cdn.github.com media.githubusercontent.com camo.githubusercontent.com identicons.github.com collector.githubapp.com avatars0.githubusercontent.com avatars1.githubusercontent.com avatars2.githubusercontent.com avatars3.githubusercontent.com github-cloud.s3.amazonaws.com; manifest-src 'self'; media-src 'none'; script-src assets-cdn.github.com; style-src 'unsafe-inline' assets-cdn.github.com; worker-src 'self'",
+      "X-Runtime-rack": "0.007926",
+      "X-GitHub-Request-Id": "BC42:23E6:27A97E:59F513:5AACE971"
+    }
+  },
+  "uuid": "2a04e50f-19c2-4b93-a3dd-17101e481e8f",
+  "persistent": true,
+  "insertionIndex": 5
+}

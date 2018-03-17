@@ -8,7 +8,8 @@ public enum Constant {
     ACCEPT("Accept"),
     USER_AGENT("User-Agent"),
     CONFIG_YAML("config.yaml"),
-    CLIENT_POOL_SIZE("clientPoolSize"), CLIENT_TIMEOUT("clientTimeout");
+    CLIENT_POOL_SIZE("clientPoolSize"),
+    CLIENT_TIMEOUT("clientTimeout");
 
     private final String prop;
 
