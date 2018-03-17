@@ -11,7 +11,7 @@ public class GetUserRepoInfoTest {
         put("githubAccept", "application/vnd.github.v3+json");
         put("githubUserBasic", "YWxsZWdyb0V4ZXJjaXNlOkNpSHVuQmFIaWR1andpNg==");
         put("clientPoolSize", 10);
-        put("clientTimeout", 10);
+        put("clientTimeout", 1);
     }};
 
 

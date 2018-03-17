@@ -5,6 +5,7 @@ import io.netty.util.internal.StringUtil;
 import ratpack.exec.Promise;
 import ratpack.http.Headers;
 import ratpack.http.client.HttpClient;
+import ratpack.http.client.HttpClientReadTimeoutException;
 import ratpack.http.client.ReceivedResponse;
 import ratpack.http.client.RequestSpec;
 import ratpack.http.internal.NettyHeadersBackedHeaders;
@@ -45,7 +46,7 @@ public class RepositoryInfo {
 
     }
 
-    public Promise<ReceivedResponse> getInfo(String owner, String repo) throws URISyntaxException {
+    public Promise<ReceivedResponse> getInfo(String owner, String repo) throws URISyntaxException, HttpClientReadTimeoutException {
         String url = resourceLink + REPOS + owner + "/" + repo;
 
         return client.get(new URI(url),
@@ -55,7 +56,6 @@ public class RepositoryInfo {
     private void setHeaders(RequestSpec requestSpec) {
         requestSpec.getHeaders().copy(headers);
     }
-
 
     private Headers setHeaders(Map<String, Object> configuration) {
         DefaultHttpHeaders defaultHttpHeaders = new DefaultHttpHeaders();

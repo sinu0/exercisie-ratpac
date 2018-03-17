@@ -1,0 +1,40 @@
+{
+  "id": "570cfa1e-8aaa-4cd6-8037-d919654649d4",
+  "name": "repos_sinu0_sispd",
+  "request": {
+    "url": "/repos/sinu0/timeout",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "fixedDelayMilliseconds": 2000,
+    "bodyFileName": "repos_sinu0_sispd-570cfa1e-8aaa-4cd6-8037-d919654649d5.json",
+    "headers": {
+      "Server": "GitHub.com",
+      "Date": "Fri, 16 Mar 2018 22:04:16 GMT",
+      "Content-Type": "application/json; charset=utf-8",
+      "Status": "200 OK",
+      "X-RateLimit-Limit": "60",
+      "X-RateLimit-Remaining": "47",
+      "X-RateLimit-Reset": "1521240469",
+      "Cache-Control": "public, max-age=60, s-maxage=60",
+      "Vary": "Accept",
+      "ETag": "W/\"7a441b97c24d52980b539d9d4ae38cd3\"",
+      "Last-Modified": "Sat, 12 Jan 2013 19:04:16 GMT",
+      "X-GitHub-Media-Type": "unknown, github.v3",
+      "Access-Control-Expose-Headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+      "Access-Control-Allow-Origin": "*",
+      "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+      "X-Frame-Options": "deny",
+      "X-Content-Type-Options": "nosniff",
+      "X-XSS-Protection": "1; mode=block",
+      "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+      "Content-Security-Policy": "default-src 'none'",
+      "X-Runtime-rack": "0.054554",
+      "X-GitHub-Request-Id": "8956:23E8:D5D24:1D7E85:5AAC3F5F"
+    }
+  },
+  "uuid": "570cfa1e-8aaa-4cd6-8037-d919654649d5",
+  "persistent": true,
+  "insertionIndex": 3
+}

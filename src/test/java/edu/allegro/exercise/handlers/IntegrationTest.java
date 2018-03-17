@@ -9,11 +9,14 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ratpack.error.ClientErrorHandler;
+import ratpack.error.ServerErrorHandler;
+import ratpack.error.internal.DefaultProductionErrorHandler;
 import ratpack.http.client.ReceivedResponse;
+import ratpack.registry.Registry;
 import ratpack.server.RatpackServer;
 import ratpack.server.ServerConfigBuilder;
 import ratpack.test.embed.EmbeddedApp;
-import ratpack.test.http.TestHttpClient;
 
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 
@@ -23,6 +26,7 @@ public class IntegrationTest {
     private static final String GIHTUB_REPO = "SiSPD";
     private static final String GIHTUB_REPO_NOK = "SiSPDs";
     private static final String GITHUB_REPO_FORBIDDEN = "Forbidden";
+    private static final String GITHUB_REPO_TIMEOUT = "timeout";
     private final EmbeddedApp app;
 
     @Rule
@@ -34,6 +38,10 @@ public class IntegrationTest {
         app = EmbeddedApp.fromServer(RatpackServer.of(ratpackServerSpec ->
                 ratpackServerSpec
                         .serverConfig(ServerConfigBuilder::build)
+                        .registry(Registry.builder()
+                                .add(ClientErrorHandler.class, new DefaultProductionErrorHandler())
+                                .add(ServerErrorHandler.class, new ErrorHandler())
+                                .build())
                         .handlers(getUserRepoInfoService.create())));
     }
 
@@ -46,40 +54,46 @@ public class IntegrationTest {
 
     @Test
     public void shouldReturnForbiddenTest() throws Exception {
-        app.test(this::githubShouldReturnForbiddenAppShouldReturn403);
+        app.test(httpClient -> {
+            ReceivedResponse receivedResponse = httpClient.get(String.format("/repositories/%s/%s", GITHUB_OWNER, GITHUB_REPO_FORBIDDEN));
+            Assert.assertTrue("Response should be nok for owner: " + GITHUB_OWNER + " and for repo: " + GITHUB_REPO_FORBIDDEN, receivedResponse.getStatusCode() == HttpResponseStatus.FORBIDDEN.code());
+        });
     }
 
 
     @Test
     public void shouldReturnOKInfoAboutOwnerRepoTest() throws Exception {
-        app.test(this::shouldReturnOKInfoAboutOwnerRepo);
+        app.test(httpClient -> {
+            ReceivedResponse receivedResponse = httpClient.get(String.format("/repositories/%s/%s", GITHUB_OWNER, GIHTUB_REPO));
+            logResponse(receivedResponse);
+            Assert.assertTrue("Response should be ok for owner: " + GITHUB_OWNER + " and for repo: " + GIHTUB_REPO, receivedResponse.getStatusCode() == HttpResponseStatus.OK.code());
+        });
     }
 
     @Test
     public void forNotExistingRepoShouldReturn404Test() throws Exception {
-        app.test(this::forNotExistingReposhouldReturn404);
+        app.test(httpClient -> {
+            ReceivedResponse receivedResponse = httpClient.get(String.format("/repositories/%s/%s", GITHUB_OWNER, GIHTUB_REPO_NOK));
+            Assert.assertTrue("Response should be nok for owner: " + GITHUB_OWNER + " and for repo: " + GIHTUB_REPO_NOK, receivedResponse.getStatusCode() == HttpResponseStatus.NOT_FOUND.code());
+        });
     }
 
     @Test
-    public void WhenGithubShutdownShouldReturn500OnGithubUnavailabilityTest() throws Exception {
+    public void whenGithubShutdownShouldReturn500OnGithubUnavailabilityTest() throws Exception {
         rule.stop();
-        app.test(this::forNotExistingReposhouldReturn404);
+        app.test(httpClient -> {
+            ReceivedResponse receivedResponse = httpClient.get(String.format("/repositories/%s/%s", GITHUB_OWNER, GIHTUB_REPO_NOK));
+            Assert.assertTrue("Response should be nok for owner: " + GITHUB_OWNER + " and for repo: " + GIHTUB_REPO_NOK, receivedResponse.getStatusCode() == HttpResponseStatus.INTERNAL_SERVER_ERROR.code());
+        });
     }
 
-    private void githubShouldReturnForbiddenAppShouldReturn403(TestHttpClient testHttpClient) {
-        ReceivedResponse receivedResponse = testHttpClient.get(String.format("/repositories/%s/%s", GITHUB_OWNER, GITHUB_REPO_FORBIDDEN));
-        Assert.assertTrue("Response should be nok for owner: " + GITHUB_OWNER + " and for repo: " + GITHUB_REPO_FORBIDDEN, receivedResponse.getStatusCode() == HttpResponseStatus.FORBIDDEN.code());
-    }
-
-    private void shouldReturnOKInfoAboutOwnerRepo(TestHttpClient testHttpClient) {
-        ReceivedResponse receivedResponse = testHttpClient.get(String.format("/repositories/%s/%s", GITHUB_OWNER, GIHTUB_REPO));
-        logResponse(receivedResponse);
-        Assert.assertTrue("Response should be ok for owner: " + GITHUB_OWNER + " and for repo: " + GIHTUB_REPO, receivedResponse.getStatusCode() == HttpResponseStatus.OK.code());
-    }
-
-    private void forNotExistingReposhouldReturn404(TestHttpClient testHttpClient) {
-        ReceivedResponse receivedResponse = testHttpClient.get(String.format("/repositories/%s/%s", GITHUB_OWNER, GIHTUB_REPO_NOK));
-        Assert.assertTrue("Response should be nok for owner: " + GITHUB_OWNER + " and for repo: " + GIHTUB_REPO_NOK, receivedResponse.getStatusCode() != HttpResponseStatus.OK.code());
+    @Test
+    public void whenGithubIsVerySlowShouldReturnTimeout() throws Exception {
+        app.test(httpClient -> {
+            ReceivedResponse receivedResponse = httpClient.get(String.format("/repositories/%s/%s", GITHUB_OWNER, GITHUB_REPO_TIMEOUT));
+            logResponse(receivedResponse);
+            Assert.assertTrue("Response should be 504 for owner: " + GITHUB_OWNER + " and for repo: " + GITHUB_REPO_TIMEOUT, receivedResponse.getStatusCode() == HttpResponseStatus.GATEWAY_TIMEOUT.code());
+        });
     }
 
     private void logResponse(ReceivedResponse response) {
