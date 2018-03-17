@@ -3,7 +3,6 @@ package edu.allegro.exercise;
 import edu.allegro.exercise.model.github.ErrorResponse;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,7 +32,10 @@ public class ResultCodesTest {
 
     @Test
     public void anyErrorDifferentThanAboveShouldBePresentedAs500() {
-        Set<Integer> notUsed = new HashSet<>(Arrays.asList(400, 403, 404));
+        Set<Integer> notUsed = new HashSet<>();
+        for (ResultCodes resultCodes : ResultCodes.values()) {
+            notUsed.add(resultCodes.getStatusCode());
+        }
         for (int i = 100; i < 511; i++) {
             if (!notUsed.contains(i)) {
                 ErrorResponse errorResponse = ResultCodes.fromCode(i);

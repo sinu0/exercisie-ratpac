@@ -27,4 +27,8 @@ public enum ResultCodes {
         }
         return new ErrorResponse(500, "Server internal error");
     }
+
+    public int getStatusCode() {
+        return statusCode;
+    }
 }
