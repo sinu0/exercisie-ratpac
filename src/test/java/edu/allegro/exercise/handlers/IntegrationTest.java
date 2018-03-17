@@ -81,7 +81,7 @@ public class IntegrationTest {
             logResponse(receivedResponse);
 
             assertTrue("Response should be OK for owner: " + GITHUB_OWNER + " and for repo: " + GIHTUB_REPO, receivedResponse.getStatusCode() == HttpResponseStatus.OK.code());
-            assertTrue("And description should not be empty", StringUtils.isNotEmpty(receivedResponse.getBody().getText()));
+            assertTrue("Description should not be empty", StringUtils.isNotEmpty(receivedResponse.getBody().getText()));
             assertEquals(jsonExpected, response, true);
         });
     }
@@ -92,7 +92,7 @@ public class IntegrationTest {
             ReceivedResponse receivedResponse = whenClientCall(httpClient, GIHTUB_REPO_NOT_FOUND);
 
             assertTrue("Response should be NOT_FOUND for owner: " + GITHUB_OWNER + " and for repo: " + GIHTUB_REPO_NOT_FOUND, receivedResponse.getStatusCode() == HttpResponseStatus.NOT_FOUND.code());
-            assertTrue("And description should not be empty", StringUtils.isNotEmpty(receivedResponse.getBody().getText()));
+            assertTrue("Description should not be empty", StringUtils.isNotEmpty(receivedResponse.getBody().getText()));
         });
     }
 
@@ -103,7 +103,7 @@ public class IntegrationTest {
             ReceivedResponse receivedResponse = whenClientCall(httpClient, GIHTUB_REPO);
 
             assertTrue("Response should be  for owner: " + GITHUB_OWNER + " and for repo: " + GIHTUB_REPO, receivedResponse.getStatusCode() == HttpResponseStatus.SERVICE_UNAVAILABLE.code());
-            assertTrue("And description should not be empty", StringUtils.isNotEmpty(receivedResponse.getBody().getText()));
+            assertTrue("Description should not be empty", StringUtils.isNotEmpty(receivedResponse.getBody().getText()));
         });
     }
 
@@ -113,7 +113,7 @@ public class IntegrationTest {
             ReceivedResponse receivedResponse = whenClientCall(httpClient, GITHUB_REPO_TIMEOUT);
 
             assertTrue("Response should be 504 for owner: " + GITHUB_OWNER + " and for repo: " + GITHUB_REPO_TIMEOUT, receivedResponse.getStatusCode() == HttpResponseStatus.GATEWAY_TIMEOUT.code());
-            assertTrue("And description should not be empty", StringUtils.isNotEmpty(receivedResponse.getBody().getText()));
+            assertTrue("Description should not be empty", StringUtils.isNotEmpty(receivedResponse.getBody().getText()));
         });
     }
 

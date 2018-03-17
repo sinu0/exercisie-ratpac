@@ -15,7 +15,7 @@ public class ResultCodesTest {
     public void errorResponseShouldBe404Test() {
         ErrorResponse errorResponse = ResultCodes.fromCode(404);
         assertTrue("Github error server 404 should be mapped on 404 error response", errorResponse.getStatusCode() == 404);
-        assertTrue("And description should not be empty", StringUtils.isNotEmpty(errorResponse.getStatusDescription()));
+        assertTrue("Description should not be empty", StringUtils.isNotEmpty(errorResponse.getStatusDescription()));
     }
 
 
@@ -23,7 +23,7 @@ public class ResultCodesTest {
     public void errorResponseShouldBe400Test() {
         ErrorResponse errorResponse = ResultCodes.fromCode(403);
         assertTrue("Github error server 403 should be mapped on 400 error response", errorResponse.getStatusCode() == 403);
-        assertTrue("And description should not be empty", StringUtils.isNotEmpty(errorResponse.getStatusDescription()));
+        assertTrue("Description should not be empty", StringUtils.isNotEmpty(errorResponse.getStatusDescription()));
     }
 
 
@@ -31,7 +31,7 @@ public class ResultCodesTest {
     public void errorResponseShouldBe500Test() {
         ErrorResponse errorResponse = ResultCodes.fromCode(500);
         assertTrue("Github error server 500 should be mapped on 500 error response", errorResponse.getStatusCode() == 500);
-        assertTrue("And description should not be empty", StringUtils.isNotEmpty(errorResponse.getStatusDescription()));
+        assertTrue("Description should not be empty", StringUtils.isNotEmpty(errorResponse.getStatusDescription()));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class ResultCodesTest {
             if (!notUsed.contains(i)) {
                 ErrorResponse errorResponse = ResultCodes.fromCode(i);
                 assertTrue("For error code: " + i + " ErrorResponse should be 500", errorResponse.getStatusCode() == 500);
-                assertTrue("And description should not be empty", StringUtils.isNotEmpty(errorResponse.getStatusDescription()));
+                assertTrue("Description should not be empty", StringUtils.isNotEmpty(errorResponse.getStatusDescription()));
             }
         }
     }
