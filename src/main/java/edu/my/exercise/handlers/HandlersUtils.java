@@ -1,7 +1,7 @@
-package edu.allegro.exercise.handlers;
+package edu.my.exercise.handlers;
 
-import edu.allegro.exercise.ResultCodes;
-import edu.allegro.exercise.model.github.ErrorResponse;
+import edu.my.exercise.ResultCodes;
+import edu.my.exercise.model.github.ErrorResponse;
 import org.slf4j.Logger;
 import ratpack.handling.Context;
 import ratpack.http.client.ReceivedResponse;

@@ -47,7 +47,7 @@ app:
   clientPoolSize: 20 #http client pool size
   clientTimeout: 10 #in seconds
   githubResourceV3: https://api.github.com/repos/
-  githubUserAgent: Allegro-exercise
+  githubUserAgent: exercise
   githubAccept: application/vnd.github.v3+json
   githubUserBasic: YWxsZWdyb0V4ZXJjaXNlOkNpSHVuQmFIaWR1andpNg==
 ```

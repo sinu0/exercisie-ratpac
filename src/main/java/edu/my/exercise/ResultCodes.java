@@ -1,6 +1,6 @@
-package edu.allegro.exercise;
+package edu.my.exercise;
 
-import edu.allegro.exercise.model.github.ErrorResponse;
+import edu.my.exercise.model.github.ErrorResponse;
 
 public enum ResultCodes {
     BAD_REQUEST(400, 500, "Github client: Bad request"),

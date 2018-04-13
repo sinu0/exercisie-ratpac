@@ -1,4 +1,4 @@
-package edu.allegro.exercise.handlers;
+package edu.my.exercise.handlers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +9,7 @@ import ratpack.path.InvalidPathEncodingException;
 
 import java.net.ConnectException;
 
-import static edu.allegro.exercise.handlers.HandlersUtils.handleError;
+import static edu.my.exercise.handlers.HandlersUtils.handleError;
 import static io.netty.handler.codec.http.HttpResponseStatus.*;
 
 public class ErrorHandler implements ServerErrorHandler {

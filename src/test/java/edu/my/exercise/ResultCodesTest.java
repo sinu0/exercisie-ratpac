@@ -1,6 +1,6 @@
-package edu.allegro.exercise;
+package edu.my.exercise;
 
-import edu.allegro.exercise.model.github.ErrorResponse;
+import edu.my.exercise.model.github.ErrorResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 

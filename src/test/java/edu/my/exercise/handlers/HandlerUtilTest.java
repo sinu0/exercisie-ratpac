@@ -1,4 +1,4 @@
-package edu.allegro.exercise.handlers;
+package edu.my.exercise.handlers;
 
 import org.apache.logging.log4j.core.util.IOUtils;
 
@@ -11,7 +11,7 @@ public class HandlerUtilTest {
 
     private static final Map<String, Object> CONFIGURATION = new HashMap<String, Object>() {{
         put("githubResourceV3", "http://localhost:1111");
-        put("githubUserAgent", "Allegro-exercise");
+        put("githubUserAgent", "exercise");
         put("githubAccept", "application/vnd.github.v3+json");
         put("githubUserBasic", "YWxsZWdyb0V4ZXJjaXNlOkNpSHVuQmFIaWR1andpNg==");
         put("clientPoolSize", 10);

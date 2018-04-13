@@ -1,4 +1,4 @@
-package edu.allegro.exercise.util;
+package edu.my.exercise.util;
 
 import ratpack.server.ServerConfig;
 
@@ -7,8 +7,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
 
-import static edu.allegro.exercise.Constant.APP_CONFIG;
-import static edu.allegro.exercise.Constant.CONFIG_YAML;
+import static edu.my.exercise.Constant.APP_CONFIG;
+import static edu.my.exercise.Constant.CONFIG_YAML;
 
 public class ServerUtil {
 

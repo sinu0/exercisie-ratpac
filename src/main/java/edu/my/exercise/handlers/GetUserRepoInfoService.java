@@ -1,8 +1,8 @@
-package edu.allegro.exercise.handlers;
+package edu.my.exercise.handlers;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.allegro.exercise.model.github.UserRepoInfo;
+import edu.my.exercise.model.github.UserRepoInfo;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +19,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Optional;
 
-import static edu.allegro.exercise.handlers.HandlersUtils.handleError;
-import static edu.allegro.exercise.handlers.HandlersUtils.logErrorResponse;
+import static edu.my.exercise.handlers.HandlersUtils.handleError;
+import static edu.my.exercise.handlers.HandlersUtils.logErrorResponse;
 
 public class GetUserRepoInfoService {
     private static final Logger log = LoggerFactory.getLogger(GetUserRepoInfoService.class);

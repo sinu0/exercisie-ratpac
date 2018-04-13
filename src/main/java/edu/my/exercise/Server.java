@@ -1,9 +1,9 @@
-package edu.allegro.exercise;
+package edu.my.exercise;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import edu.allegro.exercise.handlers.ErrorHandler;
-import edu.allegro.exercise.handlers.GetUserRepoInfoService;
+import edu.my.exercise.handlers.ErrorHandler;
+import edu.my.exercise.handlers.GetUserRepoInfoService;
 import ratpack.error.ClientErrorHandler;
 import ratpack.error.ServerErrorHandler;
 import ratpack.error.internal.DefaultProductionErrorHandler;

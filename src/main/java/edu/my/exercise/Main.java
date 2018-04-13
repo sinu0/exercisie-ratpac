@@ -1,8 +1,8 @@
-package edu.allegro.exercise;
+package edu.my.exercise;
 
-import edu.allegro.exercise.handlers.GetUserRepoInfoService;
-import edu.allegro.exercise.handlers.RepositoryInfo;
-import edu.allegro.exercise.util.ServerUtil;
+import edu.my.exercise.handlers.GetUserRepoInfoService;
+import edu.my.exercise.handlers.RepositoryInfo;
+import edu.my.exercise.util.ServerUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ratpack.server.ServerConfig;

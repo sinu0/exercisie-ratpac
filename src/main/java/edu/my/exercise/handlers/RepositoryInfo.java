@@ -1,4 +1,4 @@
-package edu.allegro.exercise.handlers;
+package edu.my.exercise.handlers;
 
 import io.netty.handler.codec.http.DefaultHttpHeaders;
 import io.netty.util.internal.StringUtil;
@@ -15,7 +15,7 @@ import java.net.URISyntaxException;
 import java.time.Duration;
 import java.util.Map;
 
-import static edu.allegro.exercise.Constant.*;
+import static edu.my.exercise.Constant.*;
 
 public class RepositoryInfo {
 

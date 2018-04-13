@@ -1,4 +1,4 @@
-package edu.allegro.exercise.handlers;
+package edu.my.exercise.handlers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;

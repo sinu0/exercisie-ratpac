@@ -1,4 +1,4 @@
-package edu.allegro.exercise.model.github;
+package edu.my.exercise.model.github;
 
 public class ErrorResponse {
     private final int StatusCode;

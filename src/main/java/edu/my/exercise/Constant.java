@@ -1,4 +1,4 @@
-package edu.allegro.exercise;
+package edu.my.exercise;
 
 public enum Constant {
     APP_CONFIG("/app"),

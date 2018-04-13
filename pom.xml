@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>edu.allegro.exercisie</groupId>
+    <groupId>edu.my.exercisie</groupId>
     <artifactId>github-repo-seeker</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -84,7 +84,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>edu.allegro.exercise.Main</mainClass>
+                            <mainClass>edu.my.exercise.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
